@@ -21,12 +21,12 @@ RUN wget http://www.webmin.com/jcameron-key.asc && apt-key add jcameron-key.asc
 RUN apt-get update
 RUN apt-get -y install webmin && apt-get clean
 
-ADD named.conf /etc/bind/named.conf
-ADD named.conf.options /etc/bind/named.conf.options
-ADD start_named.sh /etc/services/named/run
+ADD miniserv.conf /etc/webmin/miniserv.conf
+ADD start_named.sh /etc/service/named/run
+ADD start_webmin.sh /etc/service/webmin/run
 
-EXPOSE 53, 10000
-VOLUME ["/etc/bind"]
+EXPOSE 10000
+VOLUME ["/etc/bind","/etc/webmin"]
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]

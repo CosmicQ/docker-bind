@@ -25,9 +25,11 @@ ADD miniserv.conf /etc/webmin/miniserv.conf
 ADD start_named.sh /etc/service/named/run
 ADD start_webmin.sh /etc/service/webmin/run
 ADD update_pass.sh /etc/my_init.d/01_update_pass.sh
-ADD named.tar.gz /root/named.tar.gz
+ADD named.tar.gz /root/named
+ADD webmin.tar.gz /root/webmin
 
 EXPOSE 10000
+EXPOSE 53
 VOLUME ["/etc/bind","/etc/webmin"]
 
 # Use baseimage-docker's init system.

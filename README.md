@@ -11,7 +11,8 @@ For the TL;DR here is the full command with all the options
     -v /srv/bind/named:/etc/named \
     -v /srv/bind/webmin:/etc/webmin \
     -e PASS=newpass \
-    -e NET="192.168.0.0 10.1.2.0"\
+    -e NET=172.17.0.0;192.168.0.0;10.1.2.0 \
+    --name bind --hostname bind \
     cosmicq/docker-bind
 
 

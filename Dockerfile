@@ -21,7 +21,6 @@ RUN wget http://www.webmin.com/jcameron-key.asc && apt-key add jcameron-key.asc
 RUN apt-get update
 RUN apt-get -y install webmin && apt-get clean
 
-ADD miniserv.conf /etc/webmin/miniserv.conf
 ADD start_named.sh /etc/service/named/run
 ADD start_webmin.sh /etc/service/webmin/run
 ADD update_pass.sh /etc/my_init.d/01_update_pass.sh

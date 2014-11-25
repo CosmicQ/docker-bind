@@ -25,6 +25,7 @@ ADD miniserv.conf /etc/webmin/miniserv.conf
 ADD start_named.sh /etc/service/named/run
 ADD start_webmin.sh /etc/service/webmin/run
 ADD update_pass.sh /etc/my_init.d/01_update_pass.sh
+ADD named.tar.gz /root/named.tar.gz
 
 EXPOSE 10000
 VOLUME ["/etc/bind","/etc/webmin"]

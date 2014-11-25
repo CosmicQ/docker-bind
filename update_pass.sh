@@ -20,7 +20,7 @@ fi
 # Add any networks to the allowed option
 
 if [ ! -z $NET ]; then
-  MYNET=${NET/;/\ }
+  MYNET=${NET//;/\ }
   cat /root/webmin/miniserv.conf > /etc/webmin/miniserv.conf
-  echo 'allow=$MYNET' >> /etc/webmin/miniserv.conf
+  echo 'allow='$MYNET >> /etc/webmin/miniserv.conf
 fi

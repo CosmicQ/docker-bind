@@ -4,7 +4,7 @@
 # if an external volume is defined.
 
 if [ ! -e /etc/named/named.conf ]; then
-  tar zxvf -C /etc/named /root/named.tar.gz 
+  cp /root/named.tar.gz/* /etc/named/ 
 fi
 
 if [ ! -z $PASS ]; then

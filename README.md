@@ -52,3 +52,6 @@ I like to make all my external volumes on /srv/containername/volume so that is w
 ##### Extra #####
 
 I like to add **--name** and **--hostname** options, but this is not necessary.
+
+Notes for future documentation:
+To hup named: docker exec -d bind sv hup named

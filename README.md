@@ -6,11 +6,13 @@ ISC Bind server for general purpose internal name server with webmin for easy ma
 ### TL;DR ###
 
 Make the persistent directories
+
     mkdir -p /srv/bind/named
     mkdir /srv/bind/zones
     mkdir /srv/bind/webmin
 
 Here is a sample command using all the options.
+
     docker run -d \
     -p 53:53 -p 53:53/udp \
     -p 10000:10000 \
@@ -23,6 +25,7 @@ Here is a sample command using all the options.
     cosmicq/docker-bind
 
 Log into webmin and manage your server
+
     http://hostname.or.ip:10000
     (root:newpass)
 
@@ -63,13 +66,33 @@ I like to make all my external volumes on /srv/containername/volume so that is w
 ### Using Webmin ###
 
 You should probably follow the guide at webmin.com
+
     http://doxfer.webmin.com/Webmin/BINDDNSServer
 
-For a quick, just get me started guide:
+For a quick, just get me started guide, here is how to create a zone, add a host
+and query the server for the record.
+
+```
     Click on Servers -> BIND DNS Server
     Under "Existing DNS Zones", click on "Create master zone"
     Enter "Domain name / Network" (example: test.lab)
     Enter "Email address" (admin@test.lab)
+    
+    Save
+    Click on "Edit Zone Options"
+    In the "Allow queries from..." box enter "any"
+    Save
+    
+    Click on "Address"
+    Add your host (host.test.lab) Address (192.168.1.1)
+    Create
+    
+    Click on System -> Running Proxesses
+    Click the number for the named process
+    Click on "kill".  The process will restart automatically
+    
+    Test with dig: dig @nameserver.or.ip host.test.lab
+```
 
 That should be enough to create your first zone.
 
@@ -79,6 +102,7 @@ If you add or edit the config files in /srv/bind/named by hand, you need to rest
 process for that change to take effect.  This uses phusion/baseimage which runs "runit" to
 start services.  If the service dies, runit will start it again.  All we need to do to restart
 a process is to kill it and it will start right back up again.
+
     Click on System -> Running processes
     Click on the process ID for /usr/sbin/named
     Click on the Kill button and the process will simply restart

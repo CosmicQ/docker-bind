@@ -7,6 +7,10 @@ if [ ! -e /etc/named/named.conf ]; then
   cp /root/named/* /etc/named/ 
 fi
 
+# The bind directory need to be owned by the bind user
+chown bind: /etc/bind/*
+chown bind: /etc/bind/
+
 if [ ! -e /etc/webmin/miniserv.conf ]; then
   cp -R /root/webmin/* /etc/webmin/ 
 fi

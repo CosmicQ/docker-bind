@@ -29,7 +29,7 @@ ADD webmin.tar.gz /root/webmin
 
 EXPOSE 10000
 EXPOSE 53
-VOLUME ["/etc/bind","/etc/webmin"]
+VOLUME ["/etc/bind","/var/lib/bind","/etc/webmin"]
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]

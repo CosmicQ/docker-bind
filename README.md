@@ -16,7 +16,7 @@ Here is a sample command using all the options.
     docker run -d \
     -p 53:53 -p 53:53/udp \
     -p 10000:10000 \
-    -v /srv/bind/named:/etc/named \
+    -v /srv/bind/named:/etc/bind \
     -v /srv/bind/zones:/var/lib/bind \
     -v /srv/bind/webmin:/etc/webmin \
     -e PASS=newpass \

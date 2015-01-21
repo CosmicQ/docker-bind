@@ -10,6 +10,8 @@ fi
 # The bind directory need to be owned by the bind user
 chown bind: /etc/bind/*
 chown bind: /etc/bind/
+chown bind: /var/lib/bind/*
+chown bind: /var/lib/bind/
 
 if [ ! -e /etc/webmin/miniserv.conf ]; then
   cp -R /root/webmin/* /etc/webmin/ 

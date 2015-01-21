@@ -7,7 +7,7 @@ ISC Bind server for general purpose internal name server with webmin for easy ma
 
 Make the persistent directories
 
-    mkdir -p /srv/bind/named
+    mkdir -p /srv/bind/etc
     mkdir /srv/bind/zones
     mkdir /srv/bind/webmin
 
@@ -16,7 +16,7 @@ Here is a sample command using all the options.
     docker run -d \
     -p 53:53 -p 53:53/udp \
     -p 10000:10000 \
-    -v /srv/bind/named:/etc/bind \
+    -v /srv/bind/etc:/etc/bind \
     -v /srv/bind/zones:/var/lib/bind \
     -v /srv/bind/webmin:/etc/webmin \
     -e PASS=newpass \
@@ -49,9 +49,9 @@ If you want any kind of persistence for DNS, that is if you want your informatio
 I like to make all my external volumes on /srv/containername/volume so that is what is in the
  example.  You are free to change that to whatever makes you happy.
 
-**/srv/bind/named:/etc/named** - Location of named configuration files.
+**/srv/bind/etc:/etc/bind** - Location of bind9 configuration files.
 
-**/srv/bind/named:/var/lib/bind** - Location of named zone files.
+**/srv/bind/zones:/var/lib/bind** - Location of bind9 zone files.
 
 **/srv/bind/webmin:/etc/webmin** - Location of webmin configuration files and plugins.
 

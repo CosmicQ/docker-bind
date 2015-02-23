@@ -96,6 +96,12 @@ and query the server for the record.
 
 That should be enough to create your first zone.
 
+When you are done with your updates, doing a simple stop/start to the container will get the 
+service to re-read the files.
+
+    docker stop bind
+    docker start bind
+
 ### Editing the config files by hand ###
 
 If you add or edit the config files in /srv/bind/named by hand, you need to restart the named

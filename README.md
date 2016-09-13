@@ -3,6 +3,10 @@ docker-bind
 
 ISC Bind server for general purpose internal name server with webmin for easy management.
 
+[![](https://images.microbadger.com/badges/image/cosmicq/docker-bind.svg)](http://microbadger.com/images/cosmicq/docker-bind "Get your own image badge on microbadger.com")
+
+[![](https://images.microbadger.com/badges/version/cosmicq/docker-bind.svg)](http://microbadger.com/images/cosmicq/docker-bind "Get your own version badge on microbadger.com")
+
 ### TL;DR ###
 
 Make the persistent directories
